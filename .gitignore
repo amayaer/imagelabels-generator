@@ -1,7 +1,9 @@
 *.tfstate
 *.tfstate.backup
-Terraform.
 .terraform/
-.terraform.lock.hcl
 .DS_Store
 terraform.tfvars
+.venv/
+__pycache__/
+*.pyc
+.env
