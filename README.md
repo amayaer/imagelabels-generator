@@ -1,4 +1,4 @@
-# AWS Image Label Detector
+# AWS Image Label Generator
  
 A Python pipeline that uploads images to Amazon S3, uses Amazon
 Rekognition to detect objects/labels, and renders the results as
