@@ -51,6 +51,7 @@ jobs:
                 aws-region: us-east-1
 
             - name: Terraform Plan
+              working-directory: ./terraform 
               run: terraform plan
 
 
