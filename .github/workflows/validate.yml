@@ -44,6 +44,12 @@ jobs:
                 quiet: true
                 soft_fail: true
 
+            - name: Debug OIDC token
+              run: | 
+                TOKEN=$(curl -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
+                "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=sts.amazonaws.com" | jq -r .value)
+                echo $TOKEN | cut -d "." -f2 | base64 -d | jq .
+
             - name: Configure AWS credentials - OICD
               uses: aws-actions/configure-aws-credentials@v4
               with: 
