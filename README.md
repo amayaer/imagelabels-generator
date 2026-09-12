@@ -30,10 +30,11 @@ imagelabels-generator/
 │   └── validate.yml          
 ├── app/
 │   └── main.py          
-│   └── requirements.txt         
+│   └── requirements.txt 
 ├── terraform/
-│   ├── main.tf           
-│   └── outputs.tf        
+│   └── main.tf           
+│   └── outputs.tf
+│   └── .terraform.lock.hcl        
 └── .gitignore
 ```
  
@@ -49,8 +50,6 @@ imagelabels-generator/
 6. Set your bucket name in main.py (using the value from step 2) — or via env variable
 
 ## CI/CD
-[#cicd](#cicd)
-
 A GitHub Actions workflow validates Terraform changes automatically:
 
 1. `terraform fmt` — checks formatting
