@@ -21,10 +21,13 @@ IAM role/policies) is provisioned with Terraform.
 - Amazon S3, Amazon Rekognition, IAM
 - Terraform (infrastructure provisioning)
 - Pillow (PIL), matplotlib
+- GitHub Actions (CI/CD)
 
 ## Project Structure
 ```
 imagelabels-generator/
+├── .github/workflows
+│   └── validate.yml          
 ├── app/
 │   └── main.py          
 │   └── requirements.txt         
@@ -44,6 +47,20 @@ imagelabels-generator/
 4. Install dependencies: `pip install -r requirements.txt`
 5. Configure AWS CLI: `aws configure`
 6. Set your bucket name in main.py (using the value from step 2) — or via env variable
+
+## CI/CD
+[#cicd](#cicd)
+
+A GitHub Actions workflow validates Terraform changes automatically:
+
+1. `terraform fmt` — checks formatting
+2. `terraform init` — initializes providers/backend
+3. `tflint` — lints Terraform code for errors and best practices
+4. `terraform validate` — validates configuration syntax
+5. `checkov` — scans for security and compliance issues
+6. `terraform plan` — previews infrastructure changes
+
+Authentication to AWS uses OIDC (OpenID Connect)
  
 ## Example Output
 <img width="470" height="360" alt="Figure_1" src="https://github.com/user-attachments/assets/0de5e802-8af0-4d0d-ae3b-4db4ffbed961" />
